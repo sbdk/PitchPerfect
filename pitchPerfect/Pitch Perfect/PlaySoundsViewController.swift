@@ -23,24 +23,27 @@ class PlaySoundsViewController: UIViewController {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
-    func playAudioAtRate(playRate: Float) {
-        //"float_t" also works here. But "float" cause error.
+    func stopAllAudio () {
         
         audioPlayer.stop()
         audioEngine.stop()
         audioEngine.reset()
+        
+    }
+    
+    func playAudioAtRate(playRate: Float) {
+        //"float_t" also works here. But "float" cause error.
+        
+        stopAllAudio()
         audioPlayer.rate = playRate
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
-    
-    
+        
     }
     
     func playAudioWithVariablePitch(pitch: Float){
         
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAllAudio()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -61,9 +64,7 @@ class PlaySoundsViewController: UIViewController {
     
     func playAudioWithReverbEffect(percentage: Float){
         
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAllAudio()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -84,9 +85,7 @@ class PlaySoundsViewController: UIViewController {
     
     func playAudioWithEchoEffect(seconds: NSTimeInterval){
         
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAllAudio()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -154,9 +153,7 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func stopPlaySound(sender: UIButton) {
         
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAllAudio()
     }
 
 }
