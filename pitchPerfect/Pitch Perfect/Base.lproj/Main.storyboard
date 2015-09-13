@@ -32,9 +32,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.82352948188781738" green="0.15294118225574493" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="165" y="370" width="73" height="21"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HV-z6-x1Z">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>

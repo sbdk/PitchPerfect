@@ -9,6 +9,13 @@
 import UIKit
 import AVFoundation
 
+//make sure app is only running in Portait view.
+extension UINavigationController{
+    public override func supportedInterfaceOrientations() -> Int {
+        return visibleViewController.supportedInterfaceOrientations()
+    }
+}
+
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
 {
     @IBOutlet weak var recordingLabel: UILabel!
@@ -21,6 +28,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
+ 
+    //make sure app is only running in Portait view.
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +70,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         println(filePath)
         
-        //setup audio session and set the audio output default route to sepaker.
+        /*setup audio session and set the audio output default route to sepaker when the app is running on an actual iPhone.*/
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker, error: nil)
         

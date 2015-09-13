@@ -19,6 +19,10 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayerReverb:AVAudioUnitReverb!
     var audioPlayerEcho:AVAudioUnitDelay!
     
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
     func playAudioAtRate(playRate: Float) {
         //"float_t" also works here. But "float" cause error.
         
