@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "08A2486C67A0049EFAA64BD091534F822765CC88",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "08A2486C67A0049EFAA64BD091534F822765CC88" : 0,
+    "AE63C082AC389FA4A6DB03CB5C4FBB410BEBE9C1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C4435CAD-FD99-4DA2-B76D-A0513D509121",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "08A2486C67A0049EFAA64BD091534F822765CC88" : "MemeMe\/",
+    "AE63C082AC389FA4A6DB03CB5C4FBB410BEBE9C1" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MemeMe",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MemeMe.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sbdk\/MemeMe.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08A2486C67A0049EFAA64BD091534F822765CC88"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sbdk\/pitchperfect.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AE63C082AC389FA4A6DB03CB5C4FBB410BEBE9C1"
+    }
+  ]
+}
