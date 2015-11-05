@@ -9,30 +9,18 @@
 import UIKit
 import AVFoundation
 
-//make sure app is only running in Portait view.
-extension UINavigationController{
-    public override func supportedInterfaceOrientations() -> Int {
-        return visibleViewController.supportedInterfaceOrientations()
-    }
-}
-
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
 {
-    @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var tapToRecordLabel: UILabel!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var resumeButton: UIButton!
-    @IBOutlet weak var pausedLabel: UILabel!
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
  
     //make sure app is only running in Portait view.
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +33,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
         pauseButton.hidden = true
         resumeButton.hidden = true
         tapToRecordLabel.hidden = false
-        pausedLabel.hidden = true
+        //pausedLabel.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,27 +43,35 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     
 
     @IBAction func recordAudio(sender: UIButton) {
-        tapToRecordLabel.hidden = true
-        recordingLabel.hidden = false
+        tapToRecordLabel.hidden = false
+        tapToRecordLabel.text = "Recording"
+        tapToRecordLabel.textColor = UIColor.blueColor()
         pauseButton.hidden = false
         resumeButton.hidden = false
         stopButton.hidden = false;
         recordButton.enabled = false
         
         //Record the user's voice
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) [0] as! String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) [0] 
        
-        var recordingName = "my_audio.wav"
-        var pathArray = [dirPath, recordingName]
+        let recordingName = "my_audio.wav"
+        let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        println(filePath)
+        print(filePath)
         
         /*setup audio session and set the audio output default route to sepaker when the app is running on an actual iPhone.*/
-        var session = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker, error: nil)
+        
+        
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker)
+        } catch _{
+            
+        }
         
         //initialize and prepare the recorder
-        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        
+        try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
@@ -84,8 +80,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     
     @IBAction func pauseButton(sender: UIButton) {
         
-        recordingLabel.hidden = true
-        pausedLabel.hidden = false
+        tapToRecordLabel.text = "Paused"
+        tapToRecordLabel.textColor = UIColor.blackColor()
         audioRecorder.pause()
         
     }
@@ -93,12 +89,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     @IBAction func resumeButton(sender: UIButton) {
         
         audioRecorder.record()
-        pausedLabel.hidden = true
-        recordingLabel.hidden = false
-        
+        tapToRecordLabel.text = "Resume Recording"
+        tapToRecordLabel.textColor = UIColor.blueColor()
     }
     
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if(flag){
             recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent)
         
@@ -116,13 +111,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     
     
     @IBAction func stopButton(sender: UIButton) {
-        recordingLabel.hidden = true;
+        tapToRecordLabel.text = "Tap to Record"
+        tapToRecordLabel.textColor = UIColor.blackColor()
         recordButton.enabled = true;
         
         //stop recording the user's voice
         audioRecorder.stop()
-        var audioSession = AVAudioSession.sharedInstance()
-        audioSession.setActive(false, error: nil)
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setActive(false)
     }
     
 }

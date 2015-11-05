@@ -19,10 +19,6 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayerReverb:AVAudioUnitReverb!
     var audioPlayerEcho:AVAudioUnitDelay!
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-    
     func stopAllAudio () {
         
         audioPlayer.stop()
@@ -45,10 +41,10 @@ class PlaySoundsViewController: UIViewController {
         
         stopAllAudio()
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var changePitchEffect = AVAudioUnitTimePitch()
+        let changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         audioEngine.attachNode(changePitchEffect)
         
@@ -56,7 +52,7 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        try! audioEngine.start()
         
         audioPlayerNode.play()
         
@@ -66,10 +62,10 @@ class PlaySoundsViewController: UIViewController {
         
         stopAllAudio()
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var changeReverbEffect = AVAudioUnitReverb()
+        let changeReverbEffect = AVAudioUnitReverb()
         changeReverbEffect.wetDryMix = percentage
         audioEngine.attachNode(changeReverbEffect)
         
@@ -77,7 +73,7 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        try! audioEngine.start()
         
         audioPlayerNode.play()
         
@@ -87,10 +83,10 @@ class PlaySoundsViewController: UIViewController {
         
         stopAllAudio()
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var changeEchoEffect = AVAudioUnitDelay()
+        let changeEchoEffect = AVAudioUnitDelay()
         changeEchoEffect.delayTime = seconds
         audioEngine.attachNode(changeEchoEffect)
         
@@ -98,7 +94,8 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.connect(changeEchoEffect, to: audioEngine.outputNode, format: nil)
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        
+        try! audioEngine.start()
         
         audioPlayerNode.play()
         
@@ -107,10 +104,10 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
+        try! audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, fileTypeHint: AVFileTypeMPEGLayer3)
         audioPlayer.enableRate = true
         audioEngine = AVAudioEngine() //initialize aduioEngine
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        try! audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, commonFormat: AVAudioCommonFormat.PCMFormatFloat32, interleaved: true)
     }
 
     override func didReceiveMemoryWarning() {

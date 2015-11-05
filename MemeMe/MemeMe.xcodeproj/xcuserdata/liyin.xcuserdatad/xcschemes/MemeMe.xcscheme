@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEDD1CB51B92B14500BC49C7"
-               BuildableName = "Pitch Perfect.app"
-               BlueprintName = "Pitch Perfect"
-               ReferencedContainer = "container:Pitch Perfect.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEDD1CCA1B92B14500BC49C7"
-               BuildableName = "Pitch PerfectTests.xctest"
-               BlueprintName = "Pitch PerfectTests"
-               ReferencedContainer = "container:Pitch Perfect.xcodeproj">
+               BlueprintIdentifier = "BE1396D61BE2D128000945C7"
+               BuildableName = "MemeMe.app"
+               BlueprintName = "MemeMe"
+               ReferencedContainer = "container:MemeMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEDD1CCA1B92B14500BC49C7"
-               BuildableName = "Pitch PerfectTests.xctest"
-               BlueprintName = "Pitch PerfectTests"
-               ReferencedContainer = "container:Pitch Perfect.xcodeproj">
+               BlueprintIdentifier = "BE1396EA1BE2D128000945C7"
+               BuildableName = "MemeMeTests.xctest"
+               BlueprintName = "MemeMeTests"
+               ReferencedContainer = "container:MemeMe.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BE1396F51BE2D128000945C7"
+               BuildableName = "MemeMeUITests.xctest"
+               BlueprintName = "MemeMeUITests"
+               ReferencedContainer = "container:MemeMe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BEDD1CB51B92B14500BC49C7"
-            BuildableName = "Pitch Perfect.app"
-            BlueprintName = "Pitch Perfect"
-            ReferencedContainer = "container:Pitch Perfect.xcodeproj">
+            BlueprintIdentifier = "BE1396D61BE2D128000945C7"
+            BuildableName = "MemeMe.app"
+            BlueprintName = "MemeMe"
+            ReferencedContainer = "container:MemeMe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BEDD1CB51B92B14500BC49C7"
-            BuildableName = "Pitch Perfect.app"
-            BlueprintName = "Pitch Perfect"
-            ReferencedContainer = "container:Pitch Perfect.xcodeproj">
+            BlueprintIdentifier = "BE1396D61BE2D128000945C7"
+            BuildableName = "MemeMe.app"
+            BlueprintName = "MemeMe"
+            ReferencedContainer = "container:MemeMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -98,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BEDD1CB51B92B14500BC49C7"
-            BuildableName = "Pitch Perfect.app"
-            BlueprintName = "Pitch Perfect"
-            ReferencedContainer = "container:Pitch Perfect.xcodeproj">
+            BlueprintIdentifier = "BE1396D61BE2D128000945C7"
+            BuildableName = "MemeMe.app"
+            BlueprintName = "MemeMe"
+            ReferencedContainer = "container:MemeMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
