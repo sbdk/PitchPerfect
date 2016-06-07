@@ -1,1 +1,8 @@
-#### pitchperfect is the first iOS app I created. This app is optimized for running on actual iPhone 6 rather than running on iOS Simulator.
+# pitchPerfect
+Udacity program App1
+
+### Synopsis ###
+> This app let user record an audio track, and later replay this audio with different sound effects.
+
+### Main framework/technique used ###
+> * AVFoundation
